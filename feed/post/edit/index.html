@@ -1,0 +1,156 @@
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Poster - Your feed</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script defer src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/43c9e5e89e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/src/js/index.mjs"> </script>
+  </head>
+  
+  
+  
+  
+  
+  
+ <body class="bg-secondary position-relative">
+      <div class="container-fluid bg-primary border-bottom border-3">
+        <div class="container">
+      <nav class="navbar bg-primary justify-content-center">
+        <div class="container-fluid">
+          <img src="/images/poster-logo.png" alt="Poster-logo"> 
+          <form>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon1">@</span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Username"
+                aria-label="Username"
+              />
+            </div>
+          </form>
+          <div> 
+            <button type="button" class="btn btn-primary position-relative">
+  <i class="fa-solid fa-envelope"> </i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">+10 <span class="visually-hidden">unread messages</span></span>
+</button>
+            </div>
+        </div>
+ 
+        </div>
+        </div>
+      </nav>
+
+       <div class="container-md">
+      <div class="col-md-12 col-lg-3 col-xl-2 position-fixed top-25 start-0 bg-white vh-100 border-right border-3 p-2 d-none d-lg-block">
+            <div class="list-group">
+              <div class="d-flex align-items-end mb-2">
+                <img
+                  src="/images/bartcryptominer.jpg"
+                  class="rounded-circle border-success border border-3 profile-picture-sidemenu"
+                />
+                
+                <p class="p-1">Logged in as <span class="text-muted">@Vashin.234 </span> </p>
+              </div>
+              <a
+                href="/feed/"
+                class="list-group-item list-group-item-action d-flex justify-content-between active"
+                aria-current="true"
+                >Home
+                <i class="fa-sharp fa-solid fa-house align-items-center"></i>
+              </a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action d-flex justify-content-between"
+                >Messages<i class="fa-solid fa-message"></i
+              ></a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action d-flex justify-content-between"
+                >Notifications<i class="fa-solid fa-envelope"></i
+              ></a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action d-flex justify-content-between"
+                >Friends<i class="fa-solid fa-user-group "></i
+              ></a>
+                 <a
+                href="/profile/"
+                class="list-group-item list-group-item-action d-flex justify-content-between"
+                >Profile<i class="fa-solid fa-user-group"></i
+              ></a>
+                <a
+                href="/feed/post/create/"
+                class="list-group-item list-group-item-action bg-success d-flex justify-content-between"
+                > New Post<i class="fa-solid fa-circle-plus"></i
+              ></a>  
+    </div>
+  </div>
+
+  <h1 class="display-6 text-center">Update post</h1>
+        <div class="col-md-12 col-lg-7 mt-2 mb-2 mx-auto">
+             <form id="editPost">
+                  <div class="form-group mb-3">
+                    <label for=""> Title </label>
+                    <input class="form-control" type="text" name="title" required> 
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for=""> Body </label>
+                        <textarea class="form-control" type="text" name="body" required> 
+                        </textarea>
+                    </div>
+                    
+                     <div class="form-group mb-3">
+                        <label for=""> Media </label>
+                        <input class="form-control" type="url" name="media">
+                    </div>
+
+                  <button class="btn btn-success">Update post</button>
+
+                </form>
+ 
+</div>
+           <footer> 
+              <div class="col-12 d-lg-none position-fixed bottom-0 end-0 bg-white w-100 ">
+                <div class="row">
+            <div class="list-group list-group-horizontal">
+              <a
+                href="/feed/"
+                class="list-group-item list-group-item-action text-center w-50 h-100 active"
+                aria-current="true"
+                ><p class="sr-only"> Feed </p>
+                <i class="fa-sharp fa-solid fa-house align-items-center"></i>
+              </a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action text-center w-50"
+                ><p class="sr-only"> Emails </p><i class="fa-solid fa-message"></i
+              ></a>
+              <a
+                href="#"
+                class="list-group-item list-group-item-action text-center w-50"
+                > <p class="sr-only"> Messages </p> <i class="fa-solid fa-envelope"></i
+              ></a>
+                 <a
+                href="/profile/"
+                class="list-group-item list-group-item-action text-center w-50"
+                ><p class="sr-only"> Profile </p><i class="fa-solid fa-user-group"></i
+              ></a>
+                <button
+                href="/feed/post/create"
+                class="list-group-item list-group-item-action text-center w-50 bg-success"
+                ><p class="sr-only"> New Post </p><i class="fa-solid fa-circle-plus"></i
+              ></button>
+            </div>
+            </div>
+            </div>
+            </div>
+            </footer>
+  </body>
+</html>
