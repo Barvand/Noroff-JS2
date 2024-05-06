@@ -1,10 +1,7 @@
-// import * as constants from "./api/constants.mjs";
-
-// console.log(constants.API_SOCIAL_URL);
-
 import * as listeners from "./handlers/index.mjs";
 import * as postMethods from "./api/posts/index.mjs";
 import * as render from "./render/index.mjs";
+import * as search from "./filters/index.mjs";
 import { getProfiles } from "./api/profiles/read.mjs";
 import { renderCompleteProfile } from "./render/index.mjs";
 
@@ -18,9 +15,7 @@ if (path === "/profile/register/") {
   listeners.setLoginFormListener();
 } else if (path === "/feed/post/create/") {
   listeners.setCreatePostFormListener();
-} else if (path === "/feed/post/edit/") {
-  listeners.setUpdatePostFormListener();
-}
+} 
 
 if (path === "/feed/") {
   render.renderAllPosts(feedContainer);
@@ -36,6 +31,3 @@ if (path === "/feed/") {
 if (path === "/profile/") { 
   renderCompleteProfile();
 } 
-
-
-
