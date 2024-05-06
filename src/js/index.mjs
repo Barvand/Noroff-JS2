@@ -5,6 +5,7 @@
 import * as listeners from "./handlers/index.mjs";
 import * as postMethods from "./api/posts/index.mjs";
 import * as render from "./render/index.mjs";
+import * as search from "./filters/index.mjs";
 import { getProfiles } from "./api/profiles/read.mjs";
 import { renderCompleteProfile } from "./render/index.mjs";
 
@@ -34,3 +35,5 @@ if (path === "/feed/") {
 if (path === "/profile/") {
   renderCompleteProfile();
 }
+
+search.searchBar();
