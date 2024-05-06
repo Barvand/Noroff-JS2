@@ -1,0 +1,96 @@
+$body-bg: #ffffff;
+$primary: #0d6efd;
+$secondary: rgb(219, 202, 202); 
+$list-group-bg: rgb(145, 145, 145);
+$list-group-color: white; 
+
+
+
+// scss-docs-start import-stack
+// Configuration
+@import "../../node_modules/bootstrap/scss/functions";
+@import "variables";
+@import "variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+
+.image-login { 
+ width: 100%;
+ height: 300px;
+ object-fit: cover;
+}
+
+.sr-only {
+  display: none;
+}
+
+.my-custom-card { 
+  width: 100%;
+  height: 300px;
+}
+
+.profile-picture {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.profile-picture-profile { 
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.profile-picture-posts { 
+   height: 75px;
+   width: 75px;
+   object-fit: cover; 
+}
+
+.profile-picture-sidemenu { 
+  width: 75px;
+}
+
+
+// Update bootstrap class to fit my needs. 
+.card-img-top { 
+  height: 300px; 
+  object-fit: cover;
+  padding: 5px;
+}
+
+.card-img-post { 
+  height: 500px; 
+  object-fit: contain;
+  object-position: center;
+  padding: 5px;
+}
+
+.no-z-index { 
+  z-index: -1;
+}
+.custom-z-index { 
+  z-index: 10000;
+}
+
+.modal-backdrop  { 
+  position: static;
+}
+
+.modal-dialog { 
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+}
+
+a { 
+  text-decoration: none;
+}
