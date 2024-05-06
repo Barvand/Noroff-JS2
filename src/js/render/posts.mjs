@@ -68,7 +68,7 @@ export async function createPostsHTML(post, parentElement) {
     const postAuthor = document.createElement("a");
     postAuthor.innerText = `@${post.author.name}`;
     postAuthor.classList.add("link-danger");
-    postAuthor.href = `/profile/?id=${post.author.name}`;
+    postAuthor.href = `/profile/?name=${post.author.name}`;
     cardBody.appendChild(postAuthor);
 
     const divElement = document.createElement("div");

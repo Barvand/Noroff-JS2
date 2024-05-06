@@ -71,21 +71,17 @@ export async function renderProfilePosts() {
   
   try {
     const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get("id"); // Retrieve 'id' query parameter from URL
+    const name = urlParams.get("name"); // Retrieve 'id' query parameter from URL
 
-    if (!id) {
+    if (!name) {
       console.error("ID not found in URL query parameters.");
       return;
     }
 
-    const profile = await getProfile(id); 
+    const profile = await getProfile(name); 
 
     createProfilePostsHTML(profile);
   } catch (error) {
     console.error("Error rendering profile posts:", error);
   }
 }
-
-
-
-renderProfilePosts();

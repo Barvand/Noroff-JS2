@@ -5,6 +5,8 @@ export async function renderSideMenu() {
   const avatar = currentUser.avatar;
   const username = currentUser.name;
 
+  console.log(currentUser)
+
   currentAvatar(avatar);
   currentUsername(username);
 }
@@ -24,3 +26,26 @@ export async function currentUsername(name)  {
 
 
 renderSideMenu();
+
+
+                 
+async function renderProfileLinks() { 
+    const currentUser = JSON.parse(localStorage.getItem("profile"));
+    const username = currentUser.name;
+
+viewProfileLink(username);
+editProfileLink(username); 
+}
+
+async function viewProfileLink(username) { 
+  const dropDownView = document.querySelector("#view-profile-link");
+  dropDownView.href = `/profile/?name=${username}`
+}
+
+async function editProfileLink(username) {
+  const dropDownEdit = document.querySelector("#edit-profile-link");
+  dropDownEdit.href = `/profile/edit/?name=${username}`;
+}
+
+
+  renderProfileLinks();

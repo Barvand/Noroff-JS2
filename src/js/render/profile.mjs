@@ -124,7 +124,7 @@ export async function renderCompleteProfile() {
   const params = new URLSearchParams(queryString);
 
   // Get the profile name from the query string
-  const profileName = params.get("id");
+  const profileName = params.get("name");
 
   try {
     // Fetch the profile data based on the name
