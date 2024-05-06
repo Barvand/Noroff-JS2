@@ -102,10 +102,10 @@ export async function renderAllPosts(parentElement) {
 
 
 
-export async function createProfileData(profiles, container) {
+export async function createProfileData(profiles, parentElement) {
   // Create container for posts if not provided
-  if (!container) {
-    console.error("Container element is not provided.");
+  if (!parentElement) {
+    console.error("parentElement is not provided."); 
     return;
   }
 
