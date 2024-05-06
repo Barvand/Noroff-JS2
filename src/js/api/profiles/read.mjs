@@ -16,14 +16,13 @@ export async function getProfiles() {
 
 
 
-export async function getProfile(id) {
-  if (!id) {
+export async function getProfile(name) {
+  if (!name) {
     throw new Error("GET requires a profile name");
   }
 
-  const getProfileURL = `${API_SOCIAL_URL}${action}/${id}?${queryParams}`;
+  const getProfileURL = `${API_SOCIAL_URL}${action}/${name}?${queryParams}`;
   const response = await fetchToken(getProfileURL);
 
-  
   return await response.json();
 }

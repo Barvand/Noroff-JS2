@@ -44,6 +44,4 @@ export async function searchBar() {
   });
 }
 
-// Call searchBar function to initialize the search functionality
-searchBar();
 

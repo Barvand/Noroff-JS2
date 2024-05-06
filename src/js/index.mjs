@@ -21,10 +21,13 @@ if (path === "/profile/register/") {
   listeners.setCreatePostFormListener();
 } else if (path === "/feed/post/edit/") {
   listeners.setUpdatePostFormListener();
+} else if (path === "/profile/edit/") {
+  listeners.updateProfileFormListener();
 }
 
 if (path === "/feed/") {
-  render.renderAllPosts(feedContainer);
+  render.renderAllPosts(feedContainer); 
+  search.searchBar();
 } else if (path === "/feed/post/") {
   render.renderSinglePost();
 } else if (path === "/profiles") {
@@ -34,6 +37,7 @@ if (path === "/feed/") {
 
 if (path === "/profile/") {
   renderCompleteProfile();
+  renderProfilePosts();
 }
 
-search.searchBar();
+
