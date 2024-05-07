@@ -5,8 +5,6 @@ export async function renderSideMenu() {
   const avatar = currentUser.avatar;
   const username = currentUser.name;
 
-  console.log(currentUser)
-
   currentAvatar(avatar);
   currentUsername(username);
 }
@@ -36,6 +34,7 @@ async function renderProfileLinks() {
 
 viewProfileLink(username);
 editProfileLink(username); 
+editProfileLinkMobile(username);
 }
 
 async function viewProfileLink(username) { 
@@ -46,6 +45,11 @@ async function viewProfileLink(username) {
 async function editProfileLink(username) {
   const dropDownEdit = document.querySelector("#edit-profile-link");
   dropDownEdit.href = `/profile/edit/?name=${username}`;
+}
+
+async function editProfileLinkMobile(username) { 
+  const mobileMenuProfile = document.querySelector("#view-profile-link-mobile");
+   mobileMenuProfile.href = `/profile/?name=${username}`;
 }
 
 

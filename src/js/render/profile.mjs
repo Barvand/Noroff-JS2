@@ -108,10 +108,10 @@ export async function createProfilePage(profile) {
   followButton.innerText = "Follow";
   buttonsContainer.appendChild(followButton);
 
-  const messageButton = document.createElement("button");
+  const messageButton = document.createElement("a");
   messageButton.classList.add("col-5", "offset-2", "btn", "btn-success");
-  messageButton.type = "button";
-  messageButton.innerText = "Message";
+  messageButton.innerText = "Update profile";
+  messageButton.href = `/profile/edit/?name=${profile.name}`;
   buttonsContainer.appendChild(messageButton);
 
   container.appendChild(buttonsContainer);

@@ -5,6 +5,21 @@ import { createPostsHTML } from "./posts.mjs";
 // As I did not figure out how yet. Due to the query parameters
 
 
+
+// The individual post have a button where you can edit the post with. 
+async function editPostButton(post, parentElement) { 
+const editPost = document.createElement("a");
+editPost.classList.add("btn", "btn-success", "w-100", "mt-3");
+editPost.href = `/feed/post/edit/?id=${post.id}`;
+editPost.innerText = `Edit post`;
+parentElement.appendChild(editPost);
+
+const editPostMessage = document.createElement("p"); 
+editPostMessage.innerText = `You can only edit posts that you have created.`
+editPostMessage.classList.add("text-warning", "text-center")
+parentElement.appendChild(editPostMessage);
+}
+
 export async function renderSinglePost(parentElement) {
   // Get the post ID from the query string
   const queryString = document.location.search;
@@ -16,6 +31,7 @@ export async function renderSinglePost(parentElement) {
 
     // Render the post with the fetched data
     createPostsHTML(post, parentElement);
+    editPostButton(post, parentElement);
   } catch (error) {
     console.error("Error fetching or rendering post:", error);
   }
