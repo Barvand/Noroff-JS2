@@ -21,6 +21,7 @@ export async function currentAvatar(avatar) {
 
 export async function currentUsername(name)  { 
     const loggedInAs = document.querySelector("#currentUser");
+    loggedInAs.classList.add("text-warning")
     loggedInAs.innerText = name; 
 }
 

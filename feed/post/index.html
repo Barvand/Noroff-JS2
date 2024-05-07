@@ -6,6 +6,9 @@
     <title>Poster - Your feed</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script defer src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script
       src="https://kit.fontawesome.com/43c9e5e89e.js"
       crossorigin="anonymous"
@@ -41,16 +44,16 @@
         </div>
       </nav>
 
-       <div class="container-md">
-      <div class="col-md-12 col-lg-3 col-xl-2 position-fixed top-25 start-0 bg-white vh-100 border-right border-3 p-2 d-none d-lg-block">
-             <div class="list-group">
+           <main class="container-md col-md-12 col-lg-7 mt-2 mb-2 mx-auto">
+      <div class="col-md-12 col-lg-2 col-xl-2 position-fixed top-0 start-0 bg-white vh-100 border-right border-3 p-2 d-none d-xl-block">
+            <div class="list-group">
               <div class="d-flex mb-2 text-center">
                 <img
                   src="/images/bartcryptominer.jpg"
                   class="rounded-circle border-success border border-3 profile-picture-sidemenu"
                 />
                 
-                <p class="p-1">Logged in as <span class="text-muted" id="currentUser"></span> </p>
+                <p class="p-1">Logged in as <span class="text-danger" id="currentUser"></span> </p>
               </div>
               <a
                 href="/feed/"
@@ -74,11 +77,18 @@
                 class="list-group-item list-group-item-action d-flex justify-content-between"
                 >Friends<i class="fa-solid fa-user-group "></i
               ></a>
+              <div class="dropdown show">
                  <a
-                href="/profile/"
-                class="list-group-item list-group-item-action d-flex justify-content-between"
+                href="#"
+                class="list-group-item list-group-item-action d-flex justify-content-between dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 >Profile<i class="fa-solid fa-user-group"></i
               ></a>
+               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                 <a class="dropdown-item" id="view-profile-link" href="#">View profile</a>
+                 <a class="dropdown-item" id="edit-profile-link" href="#" >Edit profile</a>
+
+               </div>
+               </div>
                 <a
                 href="/feed/post/create/"
                 class="list-group-item list-group-item-action bg-success d-flex justify-content-between"
@@ -101,6 +111,7 @@
         </div>
  
 </div>
+</main>
        <footer> 
               <div class="col-12 d-lg-none position-fixed bottom-0 end-0 bg-white w-100 ">
                 <div class="row">

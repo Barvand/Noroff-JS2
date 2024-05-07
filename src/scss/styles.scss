@@ -16,7 +16,13 @@ $list-group-color: white;
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+.display-6 { 
+  font-size: 1.5rem;
+}
 
+p { 
+  font-size: 1rem;
+}
 
 .form-control:disabled { 
   opacity: 0.5;
@@ -76,7 +82,7 @@ $list-group-color: white;
 
 .card-img-post { 
   height: 500px; 
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   padding: 5px;
 }
