@@ -12,6 +12,7 @@ import { renderCompleteProfile } from "./render/index.mjs";
 const path = location.pathname;
 
 const feedContainer = document.querySelector("#feed-container");
+const wrapperContainer = document.querySelector("#post-page-container");
 
 if (path === "/profile/register/") {
   listeners.setRegisterFormListener();
@@ -29,7 +30,7 @@ if (path === "/feed/") {
   render.renderAllPosts(feedContainer); 
   search.searchBar();
 } else if (path === "/feed/post/") {
-  render.renderSinglePost();
+  render.renderSinglePost(wrapperContainer);
 } else if (path === "/profiles") {
 }
 

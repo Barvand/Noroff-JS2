@@ -18,6 +18,10 @@ export async function createProfilePostsHTML(profile) {
     postCard.classList.add("card", "my-custom-card", "h-100");
     cardWrap.appendChild(postCard);
 
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("post-image-container");
+    postCard.appendChild(imageContainer)
+
     // Create image element
     const postImage = document.createElement("img");
     postImage.classList.add("card-img-top");
@@ -32,7 +36,12 @@ export async function createProfilePostsHTML(profile) {
     }
 
     // Append image to post card
-    postCard.appendChild(postImage);
+    imageContainer.appendChild(postImage);
+
+      const postTags = document.createElement("p");
+      postTags.innerText = `#${post.tags}`;
+      postTags.classList.add("border", "m-0", "post-tags");
+      imageContainer.appendChild(postTags);
 
     // The body of the text elements.
     const cardBody = document.createElement("div");
@@ -63,6 +72,7 @@ export async function createProfilePostsHTML(profile) {
     const postDate = document.createElement("p");
     postDate.innerText = `Posted on ${formattedDate}`;
     cardBody.appendChild(postDate);
+    
   });
 }
 
