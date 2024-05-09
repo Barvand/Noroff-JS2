@@ -28,6 +28,7 @@ if (path === "/profile/register/") {
 }
 
 if (path === "/feed/") {
+  render.createLoadMoreBtn(loadMoreBtn);
   render.renderAllPosts(feedContainer); 
   search.searchBar();
 } else if (path === "/feed/post/") {

@@ -23,7 +23,7 @@ export async function createPostsHTML(post, parentElement) {
   postAvatar.href = post.author.name;
   postAvatar.classList.add(
     "rounded-circle",
-    "border-white",
+    "border-black",
     "border",
     "border-2",
     "profile-picture-posts"
