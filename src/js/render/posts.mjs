@@ -66,12 +66,18 @@ export async function createPostsHTML(post, parentElement) {
 
   // The body of the card
   const cardBody = document.createElement("div");
-  cardBody.classList.add("card-body");
+  cardBody.classList.add("card-body", "pt-0");
   postCard.appendChild(cardBody);
 
   // Creates the title of the post
   const postTitle = document.createElement("h2");
-  postTitle.classList.add("display-6");
+  postTitle.classList.add(
+    "display-6",
+    "fw-bold",
+    "fst-italic",
+    "text-capitalize",
+    "fs-5"
+  );
   postTitle.innerText = post.title;
   cardBody.appendChild(postTitle);
 
@@ -79,11 +85,8 @@ export async function createPostsHTML(post, parentElement) {
   // post body text. 
   const postBody = document.createElement("p");
   postBody.innerText = post.body;
+  postBody.classList.add("fs-6");
   cardBody.appendChild(postBody);
-
-  const postId = document.createElement("p");
-  postId.innerText = `This is just for convenience PostID` + post.id;
-  cardBody.appendChild(postId);
 
   const timestamp = new Date(post.created);
   const day = timestamp.getDate();
@@ -94,10 +97,11 @@ export async function createPostsHTML(post, parentElement) {
 
   const postDate = document.createElement("p");
   postDate.innerText = `Posted on ` + formattedDate;
+  postDate.classList.add("text-muted", "fst-italic");
   cardBody.appendChild(postDate);
 
   const divElement = document.createElement("div");
-  divElement.classList.add("d-flex", "justify-content-between");
+  divElement.classList.add("d-flex", "justify-content-end");
   cardBody.appendChild(divElement);
 
   const postComments = document.createElement("p");
