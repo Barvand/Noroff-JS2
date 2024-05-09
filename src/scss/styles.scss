@@ -1,6 +1,6 @@
 $body-bg: #ffffff;
 $primary: #0d6efd;
-$secondary: rgb(194, 191, 191); 
+$secondary: #DFF0D8; 
 $list-group-bg: rgb(145, 145, 145);
 $list-group-color: white; 
 
@@ -27,17 +27,19 @@ margin: 2px;
 }
 
 .post-tags { 
-  width: 99%;
-  background-color: #232424;
+  width: 100%;
+  background-color: rgb(145, 145, 145);
   color: white;
   text-align: center;
   align-self: center;
   text-transform: uppercase;
   font-weight: 600;
-  border: 1px white solid;
   color: white;
 }
 
+.third-color { 
+  background-color: rgb(145, 145, 145);
+}
 .post-image-container { 
   display: flex;
   flex-direction: column;
@@ -107,7 +109,6 @@ p {
 .card-img-top { 
   height: 300px; 
   object-fit: cover;
-  padding: 5px 5px 0 5px;
 }
 
 .card-img-post { 

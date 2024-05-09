@@ -14,7 +14,13 @@ export async function createPostsHTML(post, parentElement) {
 
   // Flex container for the avatar and the name of the profile.
   const avatarFlexContainer = document.createElement("div");
-  avatarFlexContainer.classList.add("d-flex", "p-1", "align-items-center");
+  avatarFlexContainer.classList.add(
+    "d-flex",
+    "p-1",
+    "align-items-center",
+    "name-tag",
+    "third-color"
+  );
   postCard.appendChild(avatarFlexContainer);
 
   // Avatar of the user
@@ -23,7 +29,7 @@ export async function createPostsHTML(post, parentElement) {
   postAvatar.href = post.author.name;
   postAvatar.classList.add(
     "rounded-circle",
-    "border-black",
+    "border-secondary",
     "border",
     "border-2",
     "profile-picture-posts"
@@ -33,7 +39,7 @@ export async function createPostsHTML(post, parentElement) {
   // Author
   const postAuthor = document.createElement("a");
   postAuthor.innerText = `@${post.author.name}`;
-  postAuthor.classList.add("link-danger");
+  postAuthor.classList.add("text-white", "fw-bold");
   postAuthor.href = `/profile/?name=${post.author.name}`;
   avatarFlexContainer.appendChild(postAuthor);
 
