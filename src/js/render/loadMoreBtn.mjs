@@ -6,7 +6,7 @@ export async function createLoadMoreBtn(parentElement) {
     const feedContainer = document.querySelector("#feed-container");
   parentElement.innerHTML = "";
   const loadButton = document.createElement("button");
-  loadButton.classList.add("btn", "btn-succes", "text-white","w-100");
+  loadButton.classList.add("btn", "btn-primary", "text-white", "w-100");
   loadButton.innerText = "Load more";
   parentElement.appendChild(loadButton);
 
@@ -19,5 +19,9 @@ export async function createLoadMoreBtn(parentElement) {
       createPostsHTML(post, feedContainer);
     });
     offset += limit;
+
+    if (offset >= 500) {
+      loadButton.style.display = "none"; // Hide the button
+    }
   });
 }
