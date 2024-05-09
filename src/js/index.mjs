@@ -13,6 +13,7 @@ const path = location.pathname;
 
 const feedContainer = document.querySelector("#feed-container");
 const wrapperContainer = document.querySelector("#post-page-container");
+const loadMoreBtn = document.querySelector("#feed-load-more-btn");
 
 if (path === "/profile/register/") {
   listeners.setRegisterFormListener();

@@ -127,6 +127,7 @@ export async function renderAllPosts(parentElement) {
 
 
 
+
 export async function createProfileData(profiles, parentElement) {
   // Create container for posts if not provided
   if (!parentElement) {
