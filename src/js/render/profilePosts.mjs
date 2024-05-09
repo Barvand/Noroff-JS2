@@ -49,29 +49,33 @@ export async function createProfilePostsHTML(profile) {
     postCard.appendChild(cardBody);
 
     // Create and append title element
-    const postTitle = document.createElement("h2");
-    postTitle.classList.add("display-6");
-    postTitle.innerText = post.title;
-    cardBody.appendChild(postTitle);
+   const postTitle = document.createElement("h2");
+   postTitle.classList.add(
+     "display-6",
+     "fw-bold",
+     "fst-italic",
+     "text-capitalize",
+     "fs-5"
+   );
+   postTitle.innerText = post.title;
+   cardBody.appendChild(postTitle);
 
     const postBody = document.createElement("p");
     postBody.innerText = post.body;
+    postBody.classList.add("fs-6");
     cardBody.appendChild(postBody);
 
-    const postTag = document.createElement("p");
-    postTag.innerText = `This is just for convenience PostID ${post.id}`;
-    cardBody.appendChild(postTag);
+   const timestamp = new Date(post.created);
+   const day = timestamp.getDate();
+   const month = timestamp.getMonth() + 1; // Adding 1 because months are zero-based
+   const year = timestamp.getFullYear();
 
-    const timestamp = new Date(post.created);
-    const day = timestamp.getDate();
-    const month = timestamp.getMonth() + 1; // Adding 1 because months are zero-based
-    const year = timestamp.getFullYear();
+   const formattedDate = `${day}/${month}/${year}`;
 
-    const formattedDate = `${day}/${month}/${year}`;
-
-    const postDate = document.createElement("p");
-    postDate.innerText = `Posted on ${formattedDate}`;
-    cardBody.appendChild(postDate);
+   const postDate = document.createElement("p");
+   postDate.innerText = `Posted on ` + formattedDate;
+   postDate.classList.add("text-muted", "fst-italic");
+   cardBody.appendChild(postDate);
     
   });
 }
