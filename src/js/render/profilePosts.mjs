@@ -1,4 +1,7 @@
 import { getProfile } from "../api/profiles/read.mjs";
+import { renderPostDate } from "./posts.mjs";
+import { renderPostImage } from "./posts.mjs";
+import { renderPostCard } from "./posts.mjs";
 
 export async function createProfilePostsHTML(profile) {
   const container = document.querySelector("#profilePosts");
@@ -22,56 +25,14 @@ export async function createProfilePostsHTML(profile) {
     imageContainer.classList.add("post-image-container");
     postCard.appendChild(imageContainer)
 
-    // Create image element
-    const postImage = document.createElement("img");
-    postImage.classList.add("card-img-top");
-    postImage.alt = post.title;
-
-    // Check if post has media
-    if (post.media) {
-      postImage.src = post.media;
-    } else {
-      // If no media available, set a default picture
-      postImage.src = "/images/dogpost.jpg"; // Replace "default-image.jpg" with your default image URL
-    }
-
-    // Append image to post card
-    imageContainer.appendChild(postImage);
+    renderPostImage(post, imageContainer);
 
       const postTags = document.createElement("p");
       postTags.innerText = `#${post.tags}`;
       postTags.classList.add("border", "m-0", "post-tags");
       imageContainer.appendChild(postTags);
 
-    // The body of the text elements.
-    const cardBody = document.createElement("div");
-    cardBody.classList.add("card-body");
-    postCard.appendChild(cardBody);
-
-    // Create and append title element
-    const postTitle = document.createElement("h2");
-    postTitle.classList.add("display-6");
-    postTitle.innerText = post.title;
-    cardBody.appendChild(postTitle);
-
-    const postBody = document.createElement("p");
-    postBody.innerText = post.body;
-    cardBody.appendChild(postBody);
-
-    const postTag = document.createElement("p");
-    postTag.innerText = `This is just for convenience PostID ${post.id}`;
-    cardBody.appendChild(postTag);
-
-    const timestamp = new Date(post.created);
-    const day = timestamp.getDate();
-    const month = timestamp.getMonth() + 1; // Adding 1 because months are zero-based
-    const year = timestamp.getFullYear();
-
-    const formattedDate = `${day}/${month}/${year}`;
-
-    const postDate = document.createElement("p");
-    postDate.innerText = `Posted on ${formattedDate}`;
-    cardBody.appendChild(postDate);
+    renderPostCard(post, imageContainer);
     
   });
 }

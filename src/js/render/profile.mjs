@@ -52,7 +52,7 @@ export async function createProfilePage(profile) {
   const nameContainer = document.createElement("div");
   nameContainer.classList.add("row");
   const profileName = document.createElement("h2");
-  profileName.classList.add("text-center");
+  profileName.classList.add("text-center", "text-primary");
   profileName.innerText = `@${profile.name}`;
   nameContainer.appendChild(profileName);
   container.appendChild(nameContainer);
