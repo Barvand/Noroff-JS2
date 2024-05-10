@@ -56,7 +56,7 @@ export async function createProfileData(profiles, parentElement) {
 
 
 
-async function renderCompletePost(post, parentElement) {
+export async function renderCompletePost(post, parentElement) {
   // Create post card anchor element
   const cardWrap = document.createElement("div");
   cardWrap.classList.add("col-md-12", "col-lg-6", "mt-2", "mb-2", "mx-auto");
@@ -72,12 +72,13 @@ async function renderCompletePost(post, parentElement) {
   renderPostTags(post, cardWrap);
 
   // Render post card
- renderPostCard(post, cardWrap);
+  renderPostCard(post, cardWrap);
+
+  renderCommentsAndReactions(post, cardWrap);
 }
 
 
-async function renderPostUsernameAndImage(post, parentElement) {
-// the flex container to get the 2 items next to eachother. 
+export async function renderPostUsernameAndImage(post, parentElement) {
 const avatarFlexContainer = document.createElement("div");
 avatarFlexContainer.classList.add(
   "d-flex",
@@ -112,7 +113,7 @@ return avatarFlexContainer;
 } 
 
 
-async function renderPostImage(post, parentElement) {
+export async function renderPostImage(post, parentElement) {
   const anchorTag = document.createElement("a"); 
   anchorTag.href = `/feed/post/?id=${post.id}`;
 
@@ -135,7 +136,7 @@ async function renderPostImage(post, parentElement) {
   return anchorTag;
 }
 
-async function renderPostTags(post, parentElement) {
+export async function renderPostTags(post, parentElement) {
   // Post tags
   const postTags = document.createElement("p");
   postTags.innerText = `#${post.tags}`;
@@ -144,7 +145,7 @@ async function renderPostTags(post, parentElement) {
   return postTags;
 }
 
-async function renderPostCard(post, parentElement) {
+export async function renderPostCard(post, parentElement) {
     // The body of the card
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body", "p-1");
@@ -159,14 +160,11 @@ async function renderPostCard(post, parentElement) {
     // Render post date
     renderPostDate(post, cardBody);
 
-    // Render comments and reactions
-    renderCommentsAndReactions(post, cardBody);
-
     return cardBody;
 }
 
 
-async function renderPostTitle(post, parentElement) {
+export async function renderPostTitle(post, parentElement) {
   // Creates the title of the post
   const postTitle = document.createElement("h2");
   postTitle.classList.add(
@@ -181,7 +179,7 @@ async function renderPostTitle(post, parentElement) {
   return postTitle
 }
 
-async function renderPostBody(post, parentElement) {
+export async function renderPostBody(post, parentElement) {
   const postBody = document.createElement("p");
   postBody.innerText = post.body;
   postBody.classList.add("fs-6");
@@ -191,7 +189,7 @@ async function renderPostBody(post, parentElement) {
 
 }
 
-async function renderPostDate(post, parentElement) { 
+export async function renderPostDate(post, parentElement) { 
 const timestamp = new Date(post.created);
 const day = timestamp.getDate();
 const month = timestamp.getMonth() + 1; // Adding 1 because months are zero-based
@@ -214,10 +212,12 @@ async function renderCommentsAndReactions(post, parentElement){
 
   const postComments = document.createElement("p");
   postComments.innerHTML = `<i class="fa-sharp fa-regular fa-heart" aria-hidden="true"> ${post._count.comments} </i>`;
+  postComments.classList.add("me-2")
   divElement.appendChild(postComments);
 
   const postReactions = document.createElement("p");
   postReactions.innerHTML = `<i class="fa-regular fa-comment" aria-hidden="true"> ${post._count.reactions} </i>`;
+  postComments.classList.add("ms-2");
   divElement.appendChild(postReactions);
 
   return divElement
