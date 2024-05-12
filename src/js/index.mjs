@@ -30,11 +30,11 @@ if (path === "/profile/register/") {
 
 if (path === "/feed/") {
   render.createLoadMoreBtn(loadMoreBtn);
-  render.renderAllPosts(feedContainer); 
   search.searchBar();
+  // This function calls 3 arrays with a click on the feedpage // New posts/Popular and Profiles. 
+  filter.createFeedFilteredArrays();
 } else if (path === "/feed/post/") {
   render.renderSinglePost(wrapperContainer);
-} else if (path === "/profiles") {
 }
 
 // PROFILE Pathing
@@ -44,4 +44,4 @@ if (path === "/profile/") {
 }
 
 
-filter.createFilterListeners()
+

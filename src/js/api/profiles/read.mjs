@@ -6,11 +6,11 @@ const method = "post";
 const queryParams = "_followers=true&_following=true&_posts=true";
 const getProfilePosts = "/posts"
 
-export async function getProfiles() {
-  const getProfileURL = `${API_SOCIAL_URL}${action}?${queryParams}`;
+export async function getProfiles(limit = 100, offset = 0) {
+  const getProfileURL = `${API_SOCIAL_URL}${action}?${queryParams}&limit=${limit}&offset=${offset}`; 
   const response = await fetchToken(getProfileURL);
-  const result =  await response.json();
-   return result;
+  const result = await response.json();
+  return result;
 }
 
 

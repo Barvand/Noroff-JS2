@@ -157,6 +157,9 @@ export async function renderProfilesFeedPage(profile, parentElement) {
   
 }
 
+
+
+
 export async function renderCompleteProfile() {
   // Get the query string from the URL
   const queryString = document.location.search;

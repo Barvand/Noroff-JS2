@@ -2,6 +2,8 @@ import { getPosts } from "../api/posts/read.mjs";
 import { getProfiles } from "../api/profiles/read.mjs";
 import { createPostsHTML, renderAllPosts } from "../render/posts.mjs";
 import { renderProfilesFeedPage } from "../render/profile.mjs";
+import { createLoadMoreBtnProfiles } from "../render/loadMoreBtn.mjs";
+import { createLoadMoreBtn } from "../render/loadMoreBtn.mjs";
 
 
 // fetching outside the functions to not have to call the api 3 times. All functions uses a copy of the result array. 
@@ -9,9 +11,11 @@ import { renderProfilesFeedPage } from "../render/profile.mjs";
 
 const result = await getPosts();
 
+const resultContainer = document.querySelector("#feed-container");
+
 export async function popularPosts() {
   try {
-    const resultContainer = document.querySelector("#feed-container");
+    
     const posts = [...result];
     let reactionsArray = [];
 
@@ -31,6 +35,7 @@ export async function popularPosts() {
     for (let i = 0; i < reactionsArray.length; i++) {
       createPostsHTML(reactionsArray[i], resultContainer);
     }
+    
 
     return reactionsArray;
   } catch (error) {
@@ -44,7 +49,6 @@ export async function popularPosts() {
 
 export async function returnToAllPosts() {
   try {
-    const resultContainer = document.querySelector("#feed-container");
 
     const posts = [...result];
 
@@ -55,6 +59,7 @@ export async function returnToAllPosts() {
       createPostsHTML(posts[i], resultContainer);
     }
 
+
     return posts; // Return allPosts array after looping through all posts
   } catch (error) {
     console.error("Error in returnToAllPosts:", error);
@@ -64,18 +69,19 @@ export async function returnToAllPosts() {
 
 export async function feedProfiles() {
   try {
-    const resultContainer = document.querySelector("#feed-container");
 
     const allProfiles = await getProfiles();
-    const profiles = [...allProfiles];
 
     resultContainer.innerHTML = "";
 
-    for (let i = 0; i < profiles.length; i++) {
-      renderProfilesFeedPage(profiles[i], resultContainer);
+    for (let i = 0; i < allProfiles.length; i++) {
+      renderProfilesFeedPage(allProfiles[i], resultContainer);
     }
 
-    return profiles; // If needed
+
+    return profiles; 
+
+    
   } catch (error) {
     console.error("Error in feedProfiles:", error);
   }
