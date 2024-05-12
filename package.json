@@ -17,14 +17,15 @@
     "Frameworks",
     "Bootstrap",
     "SCSS",
-    "SASS"
+    "SASS",
+    "JavaScript"
   ],
   "author": "Bart van den Berg <barvand54046@stud.noroff.no>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NoroffFEU/css-frameworks-ca/issues"
+    "url": "https://github.com/Barvand/Noroff-JS2"
   },
-  "homepage": "https://github.com/NoroffFEU/css-frameworks-ca#readme",
+  "homepage": "https://github.com/Barvand/Noroff-JS2/blob/main/README.md",
   "dependencies": {
     "bootstrap": "^5.3.3"
   },
