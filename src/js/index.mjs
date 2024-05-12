@@ -29,7 +29,6 @@ if (path === "/profile/register/") {
 if (path === "/feed/") {
   render.createLoadMoreBtn(loadMoreBtn);
   search.searchBar();
-  renderSideMenu();
   // This function calls 3 arrays with a click on the feedpage // New posts/Popular and Profiles. 
   filter.createFeedFilteredArrays();
 } else if (path === "/feed/post/") {
@@ -40,8 +39,8 @@ if (path === "/feed/") {
 
 if (path === "/profile/") {
   renderCompleteProfile();
-  renderSideMenu();
 }
 
+console.log(path)
 
 

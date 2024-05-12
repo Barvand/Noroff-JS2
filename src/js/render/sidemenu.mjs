@@ -23,7 +23,11 @@ export async function currentUsername(name)  {
     loggedInAs.innerText = name; 
 }
 
-         
+
+renderSideMenu();
+
+
+                 
 export async function renderProfileLinks() { 
     const currentUser = JSON.parse(localStorage.getItem("profile"));
     const username = currentUser.name;
