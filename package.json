@@ -1,7 +1,7 @@
 {
   "name": "javascript-2-course-assignment",
   "version": "0.0.1",
-  "description": "A starting point for the CSS Frameworks CA project",
+  "description": "This is the course assignment for the Javascript 2 course",
   "scripts": {
     "test": "echo \"We will learn more about testing in the Workflow course\" && exit 1",
     "build": "sass src/scss:dist/css",
