@@ -79,7 +79,7 @@ export async function feedProfiles() {
     }
 
 
-    return profiles; 
+    return allProfiles; 
 
     
   } catch (error) {
