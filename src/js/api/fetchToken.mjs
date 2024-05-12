@@ -1,19 +1,17 @@
-import { load } from "../storage/index.mjs"
+import { load } from "../storage/index.mjs";
 
+export function headers() {
+  const token = load("token");
 
-export function headers() { 
-        const token = load("token"); 
+  return {
+    "content-type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+}
 
-    return { 
-            "content-type": "application/json",
-            "Authorization": `Bearer ${token}`
-        }
-    }
-
-export async function fetchToken (url, options) { 
-    return fetch(url, {
-        ...options,
-        headers: headers()
-    })
-    
+export async function fetchToken(url, options) {
+  return fetch(url, {
+    ...options,
+    headers: headers(),
+  });
 }
