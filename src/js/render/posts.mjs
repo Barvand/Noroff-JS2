@@ -53,9 +53,6 @@ export async function createProfileData(profiles, parentElement) {
   });
 }
 
-
-
-
 export async function renderCompletePost(post, parentElement) {
   // Create post card anchor element
   const cardWrap = document.createElement("div");

@@ -8,16 +8,20 @@ import { createPostsHTML } from "./posts.mjs";
 
 // The individual post have a button where you can edit the post with. 
 async function editPostButton(post, parentElement) { 
+  const divElement = document.createElement("div"); 
+  divElement.classList.add("container-md", "col-md-12","col-lg-7","mt-2","mb-2","mx-auto");
+  parentElement.appendChild(divElement)
+
 const editPost = document.createElement("a");
-editPost.classList.add("btn", "btn-success", "w-100", "mt-3");
+editPost.classList.add("btn", "btn-success", "mt-3", "w-100");
 editPost.href = `/feed/post/edit/?id=${post.id}`;
 editPost.innerText = `Edit post`;
-parentElement.appendChild(editPost);
+divElement.appendChild(editPost);
 
 const editPostMessage = document.createElement("p"); 
 editPostMessage.innerText = `You can only edit posts that you have created.`
-editPostMessage.classList.add("text-warning", "text-center")
-parentElement.appendChild(editPostMessage);
+editPostMessage.classList.add("text-danger", "text-center", "fw-bold")
+divElement.appendChild(editPostMessage);
 }
 
 export async function renderSinglePost(parentElement) {
@@ -38,38 +42,6 @@ export async function renderSinglePost(parentElement) {
 }
 
 
-
-
-
-// export function renderPostTemplate(postData) {
-//   const post = document.createElement("div")
-//   post.classList.add("col-md-12", "col-lg-7", "mt-2", "mb-2", "mx-auto");
-//   post.innerText = postData.title
-
-//   const postImage = document.createElement("img"); 
-//   postImage.classList.add("card-img-top");
-//   postImage.alt = postData.title
-//   if (postData.media) {
-//     postImage.src = postData.media;
-//   } else {
-//     postImage.src = "/images/holidaypicture.jpg";
-    
-
-//     post.appendChild(postImage); // Example of setting a default image source
-//   }
-//   return post
-// }
-
-
-// export function renderPost(postData, parent) {
-//   parent.append(renderPostTemplate(postData))
-// }
-
-
-
-// export function renderPostTemplates(postDataList, parent) { 
-//   parent.append(...postDataList.map(renderPostTemplate));
-// }
 
 
 

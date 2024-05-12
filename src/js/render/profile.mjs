@@ -118,6 +118,45 @@ export async function createProfilePage(profile) {
 }
 
 
+export async function renderProfilesFeedPage(profile, parentElement) { 
+
+  const pictureContainer = document.createElement("div");
+  pictureContainer.classList.add("d-flex","p-1","align-items-center","name-tag", "third-color","mb-1", "mt-1");
+
+  const profilePicture = document.createElement("img");
+  profilePicture.classList.add(
+    "rounded-circle",
+    "profile-picture-profile",
+    "w-100",
+    "border",
+    "border-3",
+    "border-success",
+    "object-fit-cover"
+  );
+
+  // Check if the profile has an avatar
+  if (profile.avatar) {
+    profilePicture.src = profile.avatar;
+    profilePicture.alt = "Profile-picture";
+  } else {
+    // If there's no avatar, use a default avatar image
+    profilePicture.src = "/images/dogpost.jpg"; // Replace with your default avatar image URL
+    profilePicture.alt = "Default-avatar";
+  }
+
+  // Profile name
+ const profileName = document.createElement("a");
+ profileName.innerText = `@${profile.name}`;
+ profileName.classList.add("text-white", "fw-bold");
+ profileName.href = `/profile/?name=${profile.name}`;
+
+  parentElement.appendChild(pictureContainer);
+
+  pictureContainer.appendChild(profilePicture);
+  pictureContainer.appendChild(profileName);
+  
+}
+
 export async function renderCompleteProfile() {
   // Get the query string from the URL
   const queryString = document.location.search;

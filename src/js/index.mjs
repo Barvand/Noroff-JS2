@@ -3,6 +3,7 @@
 // console.log(constants.API_SOCIAL_URL);
 
 import * as listeners from "./handlers/index.mjs";
+import * as filter from "./listeners/index.mjs"
 import * as postMethods from "./api/posts/index.mjs";
 import * as render from "./render/index.mjs";
 import * as search from "./filters/index.mjs";
@@ -43,3 +44,4 @@ if (path === "/profile/") {
 }
 
 
+filter.createFilterListeners()
