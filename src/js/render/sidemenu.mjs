@@ -23,12 +23,8 @@ export async function currentUsername(name)  {
     loggedInAs.innerText = name; 
 }
 
-
-renderSideMenu();
-
-
-                 
-async function renderProfileLinks() { 
+         
+export async function renderProfileLinks() { 
     const currentUser = JSON.parse(localStorage.getItem("profile"));
     const username = currentUser.name;
 
@@ -37,17 +33,17 @@ editProfileLink(username);
 editProfileLinkMobile(username);
 }
 
-async function viewProfileLink(username) { 
+export async function viewProfileLink(username) { 
   const dropDownView = document.querySelector("#view-profile-link");
   dropDownView.href = `/profile/?name=${username}`
 }
 
-async function editProfileLink(username) {
+export async function editProfileLink(username) {
   const dropDownEdit = document.querySelector("#edit-profile-link");
   dropDownEdit.href = `/profile/edit/?name=${username}`;
 }
 
-async function editProfileLinkMobile(username) { 
+export async function editProfileLinkMobile(username) { 
   const mobileMenuProfile = document.querySelector("#view-profile-link-mobile");
    mobileMenuProfile.href = `/profile/?name=${username}`;
 }

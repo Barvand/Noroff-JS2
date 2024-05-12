@@ -6,6 +6,7 @@ import * as render from "./render/index.mjs";
 import * as search from "./filters/index.mjs";
 import { getProfiles } from "./api/profiles/read.mjs";
 import { renderCompleteProfile } from "./render/index.mjs";
+import { renderSideMenu } from "./render/index.mjs";
 
 const path = location.pathname;
 
@@ -28,6 +29,7 @@ if (path === "/profile/register/") {
 if (path === "/feed/") {
   render.createLoadMoreBtn(loadMoreBtn);
   search.searchBar();
+  renderSideMenu();
   // This function calls 3 arrays with a click on the feedpage // New posts/Popular and Profiles. 
   filter.createFeedFilteredArrays();
 } else if (path === "/feed/post/") {
@@ -38,6 +40,7 @@ if (path === "/feed/") {
 
 if (path === "/profile/") {
   renderCompleteProfile();
+  renderSideMenu();
 }
 
 
