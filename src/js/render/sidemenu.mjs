@@ -24,10 +24,8 @@ export async function currentUsername(name)  {
 }
 
 
-renderSideMenu();
 
-
-                 
+                
 export async function renderProfileLinks() { 
     const currentUser = JSON.parse(localStorage.getItem("profile"));
     const username = currentUser.name;
@@ -53,4 +51,3 @@ export async function editProfileLinkMobile(username) {
 }
 
 
-  renderProfileLinks();

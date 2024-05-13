@@ -6,7 +6,6 @@ import * as render from "./render/index.mjs";
 import * as search from "./filters/index.mjs";
 import { getProfiles } from "./api/profiles/read.mjs";
 import { renderCompleteProfile } from "./render/index.mjs";
-import { renderSideMenu } from "./render/index.mjs";
 
 const path = location.pathname;
 
@@ -41,6 +40,7 @@ if (path === "/profile/") {
   renderCompleteProfile();
 }
 
-console.log(path)
 
+render.renderSideMenu();
+render.renderProfileLinks()
 
