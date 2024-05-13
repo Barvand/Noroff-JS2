@@ -9,11 +9,11 @@ import { createLoadMoreBtn } from "../render/loadMoreBtn.mjs";
 // fetching outside the functions to not have to call the api 3 times. All functions uses a copy of the result array. 
 // except for profiles as they uses a different fetch URL!
 
-const result = await getPosts();
-
 const resultContainer = document.querySelector("#feed-container");
 
 export async function popularPosts() {
+  const result = await getPosts();
+
   try {
     
     const posts = [...result];
@@ -48,6 +48,7 @@ export async function popularPosts() {
 
 
 export async function returnToAllPosts() {
+  const result = await getPosts();
   try {
 
     const posts = [...result];
