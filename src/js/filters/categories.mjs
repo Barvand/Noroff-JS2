@@ -6,16 +6,14 @@ import { createLoadMoreBtnProfiles } from "../render/loadMoreBtn.mjs";
 import { createLoadMoreBtn } from "../render/loadMoreBtn.mjs";
 
 
-// fetching outside the functions to not have to call the api 3 times. All functions uses a copy of the result array. 
-// except for profiles as they uses a different fetch URL!
-
-const result = await getPosts();
+// fetching API to see if this fixes netlify errors. 
 
 const resultContainer = document.querySelector("#feed-container");
 
 export async function popularPosts() {
   try {
     
+    const result = await getPosts();
     const posts = [...result];
     let reactionsArray = [];
 
@@ -49,7 +47,7 @@ export async function popularPosts() {
 
 export async function returnToAllPosts() {
   try {
-
+     const result = await getPosts();
     const posts = [...result];
 
     resultContainer.innerHTML = ""; // Clear the container before adding new posts
