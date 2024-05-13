@@ -16,6 +16,7 @@ export async function setUpdatePostFormListener() {
     form.title.value = post.title;
     form.body.value = post.body;
     form.media.value = post.media;
+    form.tags.value = post.tags.join(" ");
 
     button.disabled = false;
 
@@ -23,14 +24,26 @@ export async function setUpdatePostFormListener() {
       event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
-      const post = Object.fromEntries(formData.entries());
-      post.id = id;
+
+      // Convert tags string to an array
+      const tagsString = formData.get("tags");
+      const tagsArray = tagsString
+        .split(" ")
+        .filter((tag) => tag.trim() !== "");
+
+      const updatedPost = {
+        title: formData.get("title"),
+        body: formData.get("body"),
+        tags: tagsArray,
+        media: formData.get("media"),
+        id: id,
+      };
 
       // Retrieve current user details from local storage
       const currentUser = JSON.parse(localStorage.getItem("profile"));
 
       // Add a check to ensure that the post belongs to the current user
-      if (post.author !== currentUser.id) {
+      if (updatedPost.author !== currentUser.id) {
         // Display an error message
         const errorMessage = document.createElement("p");
         errorMessage.textContent =
@@ -41,7 +54,7 @@ export async function setUpdatePostFormListener() {
       }
 
       // send it to the API
-      await updatePost(post);
+      await updatePost(updatedPost);
 
       // Display a message to indicate successful update
       const successMessage = document.createElement("p");
@@ -49,9 +62,9 @@ export async function setUpdatePostFormListener() {
       successMessage.classList.add("text-success", "text-center");
       form.appendChild(successMessage);
 
-      // Optionally, you can remove the message after a few seconds
       setTimeout(() => {
         form.removeChild(successMessage);
+         window.location.href = "/feed";
       }, 5000); // Remove message after 5 seconds (5000 milliseconds)
     });
   }

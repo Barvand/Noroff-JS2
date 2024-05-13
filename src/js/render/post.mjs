@@ -1,6 +1,7 @@
 import { getPost } from "../api/posts/read.mjs";
 import { getProfile } from "../api/profiles/read.mjs";
 import { createPostsHTML } from "./posts.mjs";
+import { setDeletePostFormListener } from "../handlers/deletePost.mjs";
 // calling the individual post through this page instead of the index file. 
 // As I did not figure out how yet. Due to the query parameters
 
@@ -24,6 +25,24 @@ editPostMessage.classList.add("text-danger", "text-center", "fw-bold")
 divElement.appendChild(editPostMessage);
 }
 
+
+// The individual post have a button where you can edit the post with. 
+async function removePostButton(parentElement) { 
+  const divElement = document.createElement("div"); 
+  divElement.classList.add("container-md", "col-md-12","col-lg-7","mt-2","mb-2","mx-auto");
+  parentElement.appendChild(divElement)
+
+const deletePost = document.createElement("p");
+deletePost.classList.add("btn", "btn-danger", "mt-3", "lg-w-25");
+deletePost.innerText = `Delete post`;
+divElement.appendChild(deletePost);
+
+deletePost.addEventListener("click", (event) => { 
+  setDeletePostFormListener() 
+}); 
+};
+
+
 export async function renderSinglePost(parentElement) {
   // Get the post ID from the query string
   const queryString = document.location.search;
@@ -36,6 +55,7 @@ export async function renderSinglePost(parentElement) {
     // Render the post with the fetched data
     createPostsHTML(post, parentElement);
     editPostButton(post, parentElement);
+    removePostButton(parentElement);
   } catch (error) {
     console.error("Error fetching or rendering post:", error);
   }

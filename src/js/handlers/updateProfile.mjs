@@ -39,10 +39,7 @@ export async function updateProfileFormListener() {
       successMessage.classList.add("text-success", "text-center");
       form.appendChild(successMessage);
 
-      // Optionally, you can remove the message after a few seconds
-      setTimeout(() => {
-        form.removeChild(successMessage);
-      }, 5000); // Remove message after 5 seconds (5000 milliseconds)
+      window.location.href = "/feed";
     });
   }
 }
