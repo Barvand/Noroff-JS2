@@ -40,7 +40,14 @@ if (path === "/profile/") {
   renderCompleteProfile();
 }
 
-render.renderSideMenu();
-render.renderProfileLinks();
 
+// prevents error message from popping up on the homepage, login page and register page. 
+if (
+  path !== "/profile/login/" &&
+  path !== "/profile/register/" &&
+  path !== "/"
+) {
+  render.renderSideMenu();
+  render.renderProfileLinks();
+}
 
