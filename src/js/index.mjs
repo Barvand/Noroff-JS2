@@ -41,6 +41,7 @@ if (path === "/profile/") {
   renderCompleteProfile();
 }
 
-console.log(path)
+render.renderSideMenu();
+render.renderProfileLinks();
 
 

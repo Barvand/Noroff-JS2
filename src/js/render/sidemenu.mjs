@@ -24,7 +24,7 @@ export async function currentUsername(name)  {
 }
 
 
-renderSideMenu();
+
 
 
                  
@@ -52,5 +52,3 @@ export async function editProfileLinkMobile(username) {
    mobileMenuProfile.href = `/profile/?name=${username}`;
 }
 
-
-  renderProfileLinks();
