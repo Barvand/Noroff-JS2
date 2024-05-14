@@ -56,7 +56,7 @@ export async function createProfileData(profiles, parentElement) {
 export async function renderCompletePost(post, parentElement) {
   // Create post card anchor element
   const cardWrap = document.createElement("div");
-  cardWrap.classList.add("col-md-12", "col-lg-6", "mt-2", "mb-2", "mx-auto");
+  cardWrap.classList.add("col-md-12", "col-lg-6", "mt-2", "mb-2", "mx-auto", "w-100");
   parentElement.appendChild(cardWrap);
 
   // Render post username and image
@@ -135,17 +135,18 @@ export async function renderPostImage(post, parentElement) {
 
 export async function renderPostTags(post, parentElement) {
   // Post tags
-  const postTags = document.createElement("p");
-  postTags.innerText = `#${post.tags}`;
-  postTags.classList.add(
-    "m-0",
-    "post-tags",
-    "bg-dark",
-    "text-secondary",
-    "fw-bold"
-  );
+  const postTags = document.createElement("div");
+  postTags.classList.add("post-tags");
+
+  // Loop through the first two tags
+  for (let i = 0; i < Math.min(post.tags.length, 2); i++) {
+    const tag = document.createElement("span");
+    tag.textContent = `#${post.tags[i]}`;
+    tag.classList.add("badge", "bg-dark", "text-secondary", "fw-bold", "me-1");
+    postTags.appendChild(tag);
+  }
+
   parentElement.appendChild(postTags);
-  return postTags;
 }
 
 export async function renderPostCard(post, parentElement) {
