@@ -16,7 +16,7 @@
     <script type="module" src="/src/js/index.mjs"> </script>
   </head>
 
- <body class="bg-secondary position-relative">
+ <body class="bg-secondary position-relative overflow-hidden">
       <div class="container-fluid bg-dark border-bottom border-3">
         <div class="container">
       <nav class="navbar bg-dark justify-content-center">
@@ -26,7 +26,8 @@
       </div>
       </div>
 
-       <main class="container-md col-md-12 col-lg-8 mt-2 mb-2 mx-auto">
+      <div class="container-md">
+       <main class="col-md-12 col-lg-8 mt-2 mb-2 mx-auto">
       <div class="position-fixed top-0 start-0 bg-dark vh-100 border-right border-3 p-2 d-none d-xl-block border-end border-white">
             <div class="list-group">
               <div class="d-flex mb-2 text-center text-white">
@@ -106,16 +107,17 @@
 
 <div id="feed-container" class="row d-flex justify-content-center">
 </div>
-<div id="feed-load-more-btn" class="container-md col-md-12 mt-2 mb-2"></div>
- 
+<div id="feed-load-more-btn">
+
+</div>
       </main>
           <footer> 
-              <div class="col-12 d-xl-none position-fixed bottom-0 end-0 bg-white w-100 ">
+              <div class="col-12 d-xl-none position-fixed bottom-0 end-0 bg-white w-100">
                 <div class="row">
             <div class="list-group list-group-horizontal">
               <a
                 href="/feed/"
-                class="list-group-item list-group-item-action text-center w-50 h-100 active"
+                class="list-group-item list-group-item-action text-center w-50 h-100"
                 aria-current="true"
                 ><p class="sr-only"> Feed </p>
                 <i class="fa-sharp fa-solid fa-house align-items-center"></i>
@@ -143,7 +145,7 @@
             </div>
             </div>
             </div>
-            </div>
             </footer>
+            </div>
   </body>
 </html>
