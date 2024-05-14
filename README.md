@@ -1,21 +1,24 @@
-# Noroff Javascript 2 Course Assignment
+# Poster, Social media Application
+This is the course assignment for the JavaScript 2 course assignment. 
+Bootstrap has been taken from the CSS frameworks CA. 
 
-## Javascript 2. 
+#Description
+Poster is a new social media platform where users are able to register an account, login, see all the latest posts created by other users, Search posts by ID and title. Users are able to create, read, update and remove posts, able to update their profiles and able to visit other users their profiles and posts. 
 
-#Features of the social media app. 
+Keep in mind that a Noroff email address is required to register. 
 
-#The following user stories are required for a passing submission:
+# Build with
+* HTML
+* SCSS
+* Bootstrap
+* Javascript
 
-    - User with @noroff.no or @stud.noroff.no email can register profile
-    - Registered user can login
-    - User can view a post content feed
-    - User can filter the post content feed
-    - User can search the post content feed
-    - User can view a post content item by ID
-    - User can create a post content item
-    - User can update a post content item
-    - User can delete a post content item
+# Installing
 
+## Clone using the web URL:
+[WebURL](https://github.com/Barvand/Noroff-JS2.git)  
+### Repo clone CLI: 
+gh repo clone Barvand/Noroff-JS2
 
-#Trello Board
+# Trello Board
  * https://trello.com/invite/b/ElH3FZs2/ATTI0d00e22b0a34bbe0a049f8b058427b582ACB248B/javascript-2-ca-trello-board
