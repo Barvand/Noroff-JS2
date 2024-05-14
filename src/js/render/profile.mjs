@@ -1,5 +1,5 @@
 import { getProfile } from "../api/profiles/read.mjs";
-import { createPostsHTML } from "./posts.mjs";
+import { createPostsHTML, renderPostTags } from "./posts.mjs";
 import { createProfilePostsHTML } from "./profilePosts.mjs";
 
 
@@ -175,6 +175,7 @@ export async function renderCompleteProfile() {
     // Render the profile with the fetched data
     createProfilePage(profile);
     createProfilePostsHTML(profile);
+  
 
     // Pass the container ID as a string to renderAllPosts function
   } catch (error) {

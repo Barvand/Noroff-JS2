@@ -35,8 +35,8 @@ export async function login(profile) {
 
       const displayError = document.getElementsByClassName("error-message")[0]; // Access the first element in the collection
       displayError.innerHTML = ""; // Clear any existing content
-      displayError.classList.add("text-danger");
-      displayError.innerText = "Username or password is invalid"; // Set the text content
+      displayError.classList.add("text-white","text-center", "bg-danger", "p-2", "rounded");
+      displayError.innerText = "Username or password is invalid!"; // Set the text content
     }
   } catch (error) {
     // Handle network errors or other exceptions

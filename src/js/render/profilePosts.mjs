@@ -2,6 +2,7 @@ import { getProfile } from "../api/profiles/read.mjs";
 import { renderPostDate } from "./posts.mjs";
 import { renderPostImage } from "./posts.mjs";
 import { renderPostCard } from "./posts.mjs";
+import { renderPostTags } from "./posts.mjs";
 
 export async function createProfilePostsHTML(profile) {
   const container = document.querySelector("#profilePosts");
@@ -12,29 +13,33 @@ export async function createProfilePostsHTML(profile) {
   // Iterate through posts
   profile.posts.forEach((post) => {
     // Create post card element
-    const cardWrap = document.createElement("a");
-    cardWrap.classList.add("col-md-12", "col-lg-6", "mt-2", "mb-2");
-    cardWrap.href = `/feed/post/?id=${post.id}`;
-    container.appendChild(cardWrap);
+   const cardWrap = document.createElement("div");
+   cardWrap.classList.add("col-md-12", "col-lg-6", "mt-2", "mb-2", "mx-auto");
+   container.appendChild(cardWrap);
 
-    const postCard = document.createElement("div");
-    postCard.classList.add("card", "my-custom-card", "h-100");
-    cardWrap.appendChild(postCard);
+   // Render post image
+   renderPostImage(post, cardWrap);
 
-    const imageContainer = document.createElement("div");
-    imageContainer.classList.add("post-image-container");
-    postCard.appendChild(imageContainer)
+   // Render post tags
+   renderPostTags(post, cardWrap);
 
-    renderPostImage(post, imageContainer);
-
-      const postTags = document.createElement("p");
-      postTags.innerText = `#${post.tags}`;
-      postTags.classList.add("border", "m-0", "post-tags");
-      imageContainer.appendChild(postTags);
-
-    renderPostCard(post, imageContainer);
+   // Render post card
+   renderPostCard(post, cardWrap);
     
+   divBorderBottom(cardWrap);
   });
+}
+
+async function divBorderBottom(parentElement) { 
+ const divElement = document.createElement("div");
+ divElement.classList.add(
+   "d-flex",
+   "justify-content-end",
+   "border-bottom",
+   "border-black"
+ );
+ parentElement.appendChild(divElement);
+
 }
 
 

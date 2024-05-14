@@ -82,7 +82,7 @@ avatarFlexContainer.classList.add(
   "p-1",
   "align-items-center",
   "name-tag",
-  "third-color"
+  "bg-dark"
 );
 parentElement.appendChild(avatarFlexContainer);
 
@@ -102,7 +102,7 @@ avatarFlexContainer.appendChild(postAvatar);
 // the name next to the avatar
 const postAuthor = document.createElement("a");
 postAuthor.innerText = `@${post.author.name}`;
-postAuthor.classList.add("text-white", "fw-bold");
+postAuthor.classList.add("text-secondary", "fw-bold");
 postAuthor.href = `/profile/?name=${post.author.name}`;
 avatarFlexContainer.appendChild(postAuthor);
 
@@ -137,7 +137,13 @@ export async function renderPostTags(post, parentElement) {
   // Post tags
   const postTags = document.createElement("p");
   postTags.innerText = `#${post.tags}`;
-  postTags.classList.add("border", "m-0", "post-tags");
+  postTags.classList.add(
+    "m-0",
+    "post-tags",
+    "bg-dark",
+    "text-secondary",
+    "fw-bold"
+  );
   parentElement.appendChild(postTags);
   return postTags;
 }
@@ -167,8 +173,7 @@ export async function renderPostTitle(post, parentElement) {
   postTitle.classList.add(
     "display-6",
     "fw-bold",
-    "fst-italic",
-    "text-capitalize",
+    "text-uppercase",
     "fs-5"
   );
   postTitle.innerText = post.title;
@@ -202,9 +207,9 @@ parentElement.appendChild(postDate);
 return postDate
 }
  
-async function renderCommentsAndReactions(post, parentElement){ 
+export async function renderCommentsAndReactions(post, parentElement){ 
   const divElement = document.createElement("div");
-  divElement.classList.add("d-flex", "justify-content-end");
+  divElement.classList.add("d-flex", "justify-content-end","border-bottom", "border-black");
   parentElement.appendChild(divElement);
 
   const postComments = document.createElement("p");
