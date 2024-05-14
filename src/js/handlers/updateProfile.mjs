@@ -39,7 +39,7 @@ export async function updateProfileFormListener() {
       successMessage.classList.add("text-success", "text-center");
       form.appendChild(successMessage);
 
-      window.location.href = "/feed";
+      window.location.href = `/profile/?name=${profile.name}`;
     });
   }
 }
