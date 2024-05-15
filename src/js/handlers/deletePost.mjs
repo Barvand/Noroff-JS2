@@ -1,6 +1,11 @@
 import { removePost } from "../api/posts/index.mjs";
 import { getPost } from "../api/posts/index.mjs";
 
+/**
+ * Allows the user to delete a post. 
+ * requires an ID parameter to delete a post, the retrieval of the ID is hardcore within this function. 
+ * Within this function the ID is retrieved from the querystring. 
+ */
 export async function setDeletePostFormListener() {
   const url = new URL(location.href);
   const id = url.searchParams.get("id");
