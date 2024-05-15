@@ -2,31 +2,16 @@ import { load } from "../storage/index.mjs";
 
 
 /**
- * Generates headers for a fetch request, including a bearer token for authorization.
- *
- * @returns {Object} - An object containing the headers for the fetch request.
- * @property {string} content-type - Specifies that the content type is JSON.
- * @property {string} Authorization - The bearer token for authorization.
+ * Takes the token from the local storage. This function is used as authorization header. 
+ * @returns {Object} - the header data, authorization and content Type. 
  *
  * @example
- * const requestHeaders = headers();
- * fetch('https://api.example.com/data', {
- *   method: 'GET',
- *   headers: requestHeaders,
- * })
- *   .then(response => response.json())
- *   .then(data => console.log(data))
- *   .catch(error => console.error('Error:', error));
+ * const token = load("token");
+ * return { 
+ * "content-type": "aaplication/json", 
+ * Authorization: `Bearer token`.
+ * }; 
  */
-export function headers() {
-  const token = load("token");
-
-  return {
-    "content-type": "application/json",
-    Authorization: `Bearer ${token}`,
-  };
-}
-
 export function headers() {
   const token = load("token");
 
