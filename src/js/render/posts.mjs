@@ -56,7 +56,7 @@ export async function createProfileData(profiles, parentElement) {
 export async function renderCompletePost(post, parentElement) {
   // Create post card anchor element
   const cardWrap = document.createElement("div");
-  cardWrap.classList.add("col-md-12", "col-lg-6", "mt-2", "mb-2", "mx-auto", "w-100");
+  cardWrap.classList.add("col-md-12", "col-lg-6", "mt-2", "mb-2", "mx-auto");
   parentElement.appendChild(cardWrap);
 
   // Render post username and image

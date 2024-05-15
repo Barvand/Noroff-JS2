@@ -5,48 +5,43 @@ import { setDeletePostFormListener } from "../handlers/deletePost.mjs";
 import { load } from "../storage/index.mjs";
 
 // The individual post have a button where you can edit the post with.
-async function editPostButton(post, parentElement, currentUser) {
-  // Check if the current user is viewing their own post
-  if (post.author.name === currentUser.name) {
-    const divElement = document.createElement("div");
-    divElement.classList.add("container-md", "col-md-12", "col-lg-7", "mt-2", "mb-2", "mx-auto");
-    parentElement.appendChild(divElement);
-
-    const editPost = document.createElement("a");
-    editPost.classList.add("btn", "btn-success", "mt-3", "w-100");
-    editPost.href = `/feed/post/edit/?id=${post.id}`;
-    editPost.innerText = `Edit post`;
-    divElement.appendChild(editPost);
-
-    const editPostMessage = document.createElement("p");
-    editPostMessage.innerText = `You can only edit posts that you have created.`;
-    editPostMessage.classList.add("text-danger", "text-center", "fw-bold");
-    divElement.appendChild(editPostMessage);
-  }
-}
-
-// The individual post have a button where you can edit the post with.
-async function removePostButton(post, parentElement, currentUser) {
+async function addPostButton(post, parentElement, currentUser) {
   // Check if the current user is viewing their own post
   if (post.author.name === currentUser.name) {
     const divElement = document.createElement("div");
     divElement.classList.add(
       "container-md",
       "col-md-12",
-      "col-lg-7",
+      "col-lg-6",
       "mt-2",
       "mb-2",
-      "mx-auto"
+      "mx-auto",
+      "d-flex",
+      "justify-content-between"
+  
     );
     parentElement.appendChild(divElement);
 
+    // Create and append the edit button
+    const editPost = document.createElement("a");
+    editPost.classList.add(
+      "btn",
+      "btn-success",
+      "mt-3",
+      "h-50",
+      "text-center"
+    );
+    editPost.href = `/feed/post/edit/?id=${post.id}`;
+    editPost.innerText = `Edit post`;
+    divElement.appendChild(editPost);
+
+    // Create and append the delete button
     const deletePost = document.createElement("p");
-    deletePost.classList.add("btn", "btn-danger", "mt-3", "lg-w-25");
+    deletePost.classList.add("btn", "btn-danger", "mt-3", "lg-w-25", "text-center")
     deletePost.innerText = `Delete post`;
     divElement.appendChild(deletePost);
 
-
-    // event listener - might need to put this somewhere else.
+    // Add event listener for the delete button
     deletePost.addEventListener("click", (event) => {
       setDeletePostFormListener();
     });
@@ -67,8 +62,7 @@ export async function renderSinglePost(parentElement) {
 
     // Render the post with the fetched data
     createPostsHTML(post, parentElement);
-    editPostButton(post, parentElement, currentUser); // Pass currentUser to editPostButton
-    removePostButton(post, parentElement, currentUser); // Pass currentUser to removePostButton
+    addPostButton(post, parentElement, currentUser);
   } catch (error) {
     console.error("Error fetching or rendering post:", error);
   }
