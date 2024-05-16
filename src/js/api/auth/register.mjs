@@ -18,5 +18,9 @@ const response = await fetch(registerURL, {
 
 const result = await response.json()
 alert("You are now registered")
+
+window.location.href = "/profile/login/";
+
 return result
+
 }
