@@ -4,6 +4,11 @@ import { renderPostImage } from "./posts.mjs";
 import { renderPostCard } from "./posts.mjs";
 import { renderPostTags } from "./posts.mjs";
 
+
+/**
+ * 
+ * @param {*} profile 
+ */
 export async function createProfilePostsHTML(profile) {
   const container = document.querySelector("#profilePosts");
 
@@ -30,6 +35,11 @@ export async function createProfilePostsHTML(profile) {
   });
 }
 
+/**
+ * Function that creates a bottom line for the div for styling purposes only. 
+ * @param {string} parentElement needs a parentElement to append to. 
+ * @returns a div that creates a bottom line for styling purposes. 
+ */
 async function divBorderBottom(parentElement) { 
  const divElement = document.createElement("div");
  divElement.classList.add(
@@ -42,9 +52,31 @@ async function divBorderBottom(parentElement) {
 
 }
 
+/**
+ * Function that renders the createProfilePostsHTML function with the required query parameters and fetched profile data. 
+ * @returns HTML with the correct data of the profile of the user, 
+ * displaying all the posts of the user on the profile page.
+ * @example 
+ * const SearchParams = new URLSearchParams(window.location.search);
+ try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name"); // Retrieve 'id' query parameter from URL
 
+    if (!name) {
+      console.error("ID not found in URL query parameters.");
+      return;
+    }
+
+    const array(profile) = await getProfile(name); 
+
+    createProfilePostsHTML(profile);
+  } catch (error) {
+    console.error("Error rendering profile posts:", error);
+  }
+}
+*/
 export async function renderProfilePosts() {
-  
+
   try {
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get("name"); // Retrieve 'id' query parameter from URL

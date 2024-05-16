@@ -14,45 +14,6 @@ export async function renderAllPosts(parentElement) {
   }
 };
 
-
-
-
-
-
-export async function createProfileData(profiles, parentElement) {
-  // Create container for posts if not provided
-  if (!parentElement) {
-    console.error("parentElement is not provided."); 
-    return;
-  }
-
-  // Clear container
-  container.innerHTML = "";
-
-  // Iterate through posts
-  profiles.forEach((profile) => {
-    // Create post card element
-    const cardWrap = document.createElement("a");
-    cardWrap.classList.add("col-md-12", "col-lg-6", "mt-2", "mb-2");
-    container.appendChild(cardWrap);
-
-    // Create image element
-    const profileAvatar = document.createElement("img");
-    profileAvatar.classList.add("card-img-top");
-    profileAvatar.alt = profile.avatar;
-    profileAvatar.src = profile.avatar;
-    cardWrap.appendChild(profileAvatar);
-
-    // Check if post has media
-    if (profileAvatar) {
-      profileAvatar.src = profile.avatar;
-    } else {
-      // If no media available, set a default picture
-      profileAvatar.src = "/images/dogpost.jpg"; // Replace "default-image.jpg" with your default image URL
-    }
-  });
-}
-
 export async function renderCompletePost(post, parentElement) {
   // Create post card anchor element
   const cardWrap = document.createElement("div");
