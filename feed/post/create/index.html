@@ -73,24 +73,24 @@
           Create a post</h1>
         <form id="createPost">
           <div class="form-group mb-3">
-            <label for=""> Title </label>
-            <input class="form-control" type="text" name="title" required>
+            <label for="title"> Title </label>
+            <input class="form-control" type="text" name="title" id="title" required>
           </div>
 
           <div class="form-group mb-3">
-            <label for=""> Body </label>
-            <textarea class="form-control" type="text" name="body" required>
+            <label for="body"> Body </label>
+            <textarea class="form-control" type="text" name="body" id="body" required>
                         </textarea>
           </div>
 
           <div class="form-group mb-3">
-            <label for=""> Tags </label>
-            <input class="form-control" type="text" name="tags">
+            <label for="body"> Tags </label>
+            <input class="form-control" name="tags" id="tags">
           </div>
 
           <div class="form-group mb-3">
-            <label for=""> Media </label>
-            <input class="form-control" type="url" name="media">
+            <label for="media"> Media </label>
+            <input class="form-control" type="url" name="media" id="media">
           </div>
 
           <button class="btn btn-success">Create post</button>
@@ -115,13 +115,12 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action text-center w-50" id="view-profile-link-mobile">
               <p class="sr-only"> Profile </p><i class="fa-solid fa-user-group"></i>
-            </a></a>
+            </a>
             <button href="/feed/post/create" class="list-group-item list-group-item-action text-center w-50 active">
               <p class="sr-only"> New Post </p><i class="fa-solid fa-circle-plus"></i>
             </button>
           </div>
         </div>
-      </div>
       </div>
     </footer>
   </body>
