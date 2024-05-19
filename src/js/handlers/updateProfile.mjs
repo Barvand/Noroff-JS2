@@ -26,7 +26,6 @@ export async function updateProfileFormListener() {
     try {
       // Load profile data
       const { name, email } = load("profile");
-      console.log("Loaded profile:", { name, email });
       
       // Populate form fields
       form.elements.name.value = name;
@@ -37,7 +36,6 @@ export async function updateProfileFormListener() {
 
       // Fetch additional profile data
       const profile = await getProfile(name);
-      console.log("Fetched profile:", profile);
 
       form.elements.banner.value = profile.banner;
       form.elements.avatar.value = profile.avatar;

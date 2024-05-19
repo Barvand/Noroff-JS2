@@ -36,7 +36,7 @@ export function headers() {
  * };
  * fetchToken(url, options)
  *   .then(response => response.json())
- *   .then(data => console.log(data))
+ *   .then(data => console.log(data)) to see if info is correct. 
  *   .catch(error => console.error('Error:', error));
  */
 export async function fetchToken(url, options) {
